@@ -6,8 +6,9 @@ include:
 - freeipa.client.nsupdate
 - freeipa.client.cert
 
-{%- if client.install_principal is defined %}
 {%- set otp = salt['random.get_str'](20) %}
+
+{%- if client.install_principal is defined %}
 
 freeipa_push_principal:
   file.managed:
